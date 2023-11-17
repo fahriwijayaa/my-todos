@@ -1,5 +1,28 @@
+* {
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  /* hide scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
 .App {
   text-align: center;
+  background: linear-gradient(darkblue, cyan);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-logo {
@@ -13,6 +36,16 @@
   }
 }
 
+.filter {
+  background: linear-gradient(darkblue, cyan);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -20,16 +53,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.layout {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5px;
-  font-size: calc(10px + 2vmin);
-  min-height: 50vh;
 }
 
 .App-link {
