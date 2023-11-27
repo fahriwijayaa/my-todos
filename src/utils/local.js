@@ -23,8 +23,8 @@ function getTodos() {
   return array_todos;
 }
 
-function deleteTodos(deleted_index) {
-  array_todos = array_todos.filter((todo, index) => index !== deleted_index);
+function deleteTodos(deleted_id) {
+  array_todos = array_todos.filter((todo, index) => todo.id !== deleted_id);
 }
 
 function addTodo(todo) {

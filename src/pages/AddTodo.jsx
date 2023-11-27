@@ -1,26 +1,27 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { addTodo } from "../utils/local";
+import { useNavigate, useParams } from "react-router-dom";
+import { addNote } from "../utils/network";
 import "../App.css";
 
 function AddTodo(props) {
   const navigate = useNavigate();
+  const { username } = useParams();
 
   const [todo, setTodo] = useState({
     title: "",
-    createdAt: "",
-    description: "",
+    body: "",
   });
 
   function onSubmitHandler(event) {
     event.preventDefault();
-    addTodo(todo);
-    navigate("/");
+    addNote(todo);
+    console.log(todo);
+    navigate(`/${username}`);
   }
 
   return (
-    <div className="p-2 filter">
+    <div className="p-2">
       <strong className="fs-1 text-center text-light">Form Add Todo</strong>
       <Form
         className="row g-3 m-5 text-light"
@@ -28,7 +29,7 @@ function AddTodo(props) {
           onSubmitHandler(event);
         }}
       >
-        <Form.Group className="col-md-6 text-start">
+        <Form.Group className="col-md-12 text-start">
           <Form.Label>Title</Form.Label>
           <Form.Control
             onChange={(event) => {
@@ -40,23 +41,12 @@ function AddTodo(props) {
             required
           />
         </Form.Group>
-        <Form.Group className="col-md-6 text-start">
-          <Form.Label>CreatedAt</Form.Label>
-          <Form.Control
-            onChange={(event) => {
-              const value = event.target.value;
-              setTodo({ ...todo, createdAt: value });
-            }}
-            type="date"
-            required
-          />
-        </Form.Group>
         <Form.Group className="col-12 text-start">
           <Form.Label>Description</Form.Label>
           <Form.Control
             onChange={(event) => {
               const value = event.target.value;
-              setTodo({ ...todo, description: value });
+              setTodo({ ...todo, body: value });
             }}
             type="text"
             placeholder="Add Description"
@@ -65,7 +55,7 @@ function AddTodo(props) {
             required
           />
         </Form.Group>
-        {todo.title && todo.createdAt && todo.description ? (
+        {todo.title && todo.body ? (
           <Button
             className="col-2 btn-outline-primary position-relative start-50 translate-middle-x"
             variant="light"

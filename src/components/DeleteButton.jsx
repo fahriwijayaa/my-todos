@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Button } from "react-bootstrap";
+import hapus from "../assets/delete.png";
 
 function DeleteButton({ index, id, onDelete }) {
   return (
     <Button
       variant="dark"
       className="btn-outline-danger fs-6"
-      onClick={() => onDelete(index)}
+      onClick={() => onDelete(id)}
     >
-      Hapus
+      <img src={hapus} alt="Profile" width="25" height="25" />
     </Button>
   );
 }
