@@ -22,7 +22,7 @@ function AddTodo(props) {
 
   return (
     <div className="p-2">
-      <strong className="fs-1 text-center text-light">Form Add Todo</strong>
+      <strong className="fs-1 text-center text-light">Form Add Note</strong>
       <Form
         className="row g-3 m-5 text-light"
         onSubmit={(event) => {
@@ -42,14 +42,14 @@ function AddTodo(props) {
           />
         </Form.Group>
         <Form.Group className="col-12 text-start">
-          <Form.Label>Description</Form.Label>
+          <Form.Label>Body</Form.Label>
           <Form.Control
             onChange={(event) => {
               const value = event.target.value;
               setTodo({ ...todo, body: value });
             }}
             type="text"
-            placeholder="Add Description"
+            placeholder="Add Body"
             as="textarea"
             rows={3}
             required

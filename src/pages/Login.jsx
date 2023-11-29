@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { login, putAccessToken } from "../utils/network";
 
 function Login() {
@@ -54,7 +54,7 @@ function Login() {
               variant="light"
               type="submit"
             >
-              Submit
+              Log In
             </Button>
           ) : (
             <Button
@@ -63,22 +63,18 @@ function Login() {
               type="submit"
               disabled
             >
-              Submit
+              Log In
             </Button>
           )}
         </Form.Group>
-        <div className="line"></div>
+        <div className="line" />
         <Form>
-          <Button
-            className="col-2 mb-3 btn-outline-success"
-            variant="light"
-            type="submit"
-            onClick={() => {
-              navigate("/register");
-            }}
-          >
-            Register
-          </Button>
+          <div className="text-start">
+            if you don't have account,{" "}
+            <Link to="/register" className="text">
+              <strong>Register</strong>
+            </Link>
+          </div>
         </Form>
       </Form>
     </div>

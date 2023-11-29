@@ -7,7 +7,7 @@ import {
   getUserLogged,
   deleteNote,
 } from "../utils/network";
-import TodoList from "../components/TodoList";
+import NoteList from "../components/NoteList";
 import profile from "../assets/profile.png";
 import "../App.css";
 
@@ -16,7 +16,7 @@ function Home() {
   const { username } = useParams();
 
   const [search, setSearch] = useState("");
-  const [todos, setTodos] = useState([]);
+  const [notes, setNotes] = useState([]);
 
   const handleChangeSearch = (event) => {
     setSearch(event.target.value);
@@ -30,7 +30,7 @@ function Home() {
       const getNotesResult = await getNotes();
 
       if (!getNotesResult.error) {
-        setTodos(getNotesResult.data);
+        setNotes(getNotesResult.data);
       } else {
         console.error(
           "Error fetching notes after deletion:",
@@ -44,7 +44,6 @@ function Home() {
 
   function onLogoutHandler(event) {
     event.preventDefault();
-    // TODO HANDLE LOGOUT HERE
     const isConfirmed = window.confirm("Apakah Anda yakin?");
     if (isConfirmed) {
       deleteAccessToken();
@@ -54,7 +53,6 @@ function Home() {
 
   async function onProfileHandler(event) {
     event.preventDefault();
-    // TODO HANDLE LOGOUT HERE
     const response = await getUserLogged();
     console.log(response);
     navigate(`/${username}/profile`);
@@ -64,15 +62,15 @@ function Home() {
     getNotes()
       .then((result) => {
         const data = result.data;
-        setTodos(data);
+        setNotes(data);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }, []);
 
-  const filteredTodos = todos.filter((todo) => {
-    return todo.title.toLowerCase().includes(search.toLowerCase());
+  const filteredNotes = notes.filter((note) => {
+    return note.title.toLowerCase().includes(search.toLowerCase());
   });
 
   return (
@@ -114,7 +112,7 @@ function Home() {
         </div>
       </nav>
       <div className="p-5">
-        <strong className="fs-1 text-light">Todo List</strong>
+        <strong className="fs-1 text-light">Note List</strong>
         <br />
         <Button
           className="d-flex mb-2 btn-outline-primary text-center"
@@ -124,10 +122,10 @@ function Home() {
             navigate(`/${username}/add`);
           }}
         >
-          Add Todo
+          Add Note
         </Button>
         <div>
-          <TodoList todos={filteredTodos} onDelete={onDeleteHandler} />
+          <NoteList notes={filteredNotes} onDelete={onDeleteHandler} />
         </div>
       </div>
     </>

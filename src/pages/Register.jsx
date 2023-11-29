@@ -31,7 +31,7 @@ function Register() {
         }}
       >
         <Form.Group className="row-md-6 text-start">
-          <Form.Label>Username</Form.Label>
+          <Form.Label>Create Username</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter username"
@@ -41,7 +41,7 @@ function Register() {
           />
         </Form.Group>
         <Form.Group className="row-md-6 text-start">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Create Password</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter password"

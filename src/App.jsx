@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./pages/Home";
-import AddTodo from "./pages/AddTodo";
+import AddNote from "./pages/AddNote";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import "./App.css";
@@ -27,7 +27,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route element={<NeedLogin />}>
           <Route path="/:username" element={<Home />} />
-          <Route path="/:username/add" element={<AddTodo />} />
+          <Route path="/:username/add" element={<AddNote />} />
           <Route path="/:username/profile" element={<Profile />} />
         </Route>
       </Routes>

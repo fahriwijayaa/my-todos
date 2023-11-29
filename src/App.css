@@ -29,6 +29,17 @@
   border-top: 1px solid white;
 }
 
+.text {
+  color: darkblue;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.text:hover {
+  color: white;
+  text-decoration: underline;
+}
+
 nav {
   display: flex;
   background-color: darkblue;

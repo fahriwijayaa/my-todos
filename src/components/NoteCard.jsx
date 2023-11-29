@@ -2,7 +2,7 @@ import { DeleteButton } from "./DeleteButton";
 
 import PropTypes from "prop-types";
 
-function TodoRow({ no, title, createdAt, children, id, index, onDelete }) {
+function NoteCard({ no, title, createdAt, children, id, index, onDelete }) {
   return (
     <div className="text-start fs-4 mb-2 bg-dark text-light rounded">
       <div className="card-header p-2 d-flex justify-content-between">
@@ -20,7 +20,7 @@ function TodoRow({ no, title, createdAt, children, id, index, onDelete }) {
   );
 }
 
-TodoRow.propTypes = {
+NoteCard.propTypes = {
   no: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
@@ -30,4 +30,4 @@ TodoRow.propTypes = {
   onDelete: PropTypes.func.isRequired,
 };
 
-export { TodoRow };
+export { NoteCard };
