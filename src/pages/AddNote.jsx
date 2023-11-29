@@ -4,19 +4,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import { addNote } from "../utils/network";
 import "../App.css";
 
-function AddTodo(props) {
+function AddNote(props) {
   const navigate = useNavigate();
   const { username } = useParams();
 
-  const [todo, setTodo] = useState({
+  const [note, setNote] = useState({
     title: "",
     body: "",
   });
 
   function onSubmitHandler(event) {
     event.preventDefault();
-    addNote(todo);
-    console.log(todo);
+    addNote(note);
+    console.log(note);
     navigate(`/${username}`);
   }
 
@@ -34,7 +34,7 @@ function AddTodo(props) {
           <Form.Control
             onChange={(event) => {
               const value = event.target.value;
-              setTodo({ ...todo, title: value });
+              setNote({ ...note, title: value });
             }}
             type="text"
             placeholder="Add Title"
@@ -46,7 +46,7 @@ function AddTodo(props) {
           <Form.Control
             onChange={(event) => {
               const value = event.target.value;
-              setTodo({ ...todo, body: value });
+              setNote({ ...note, body: value });
             }}
             type="text"
             placeholder="Add Body"
@@ -55,7 +55,7 @@ function AddTodo(props) {
             required
           />
         </Form.Group>
-        {todo.title && todo.body ? (
+        {note.title && note.body ? (
           <Button
             className="col-2 btn-outline-primary position-relative start-50 translate-middle-x"
             variant="light"
@@ -78,4 +78,4 @@ function AddTodo(props) {
   );
 }
 
-export default AddTodo;
+export default AddNote;
