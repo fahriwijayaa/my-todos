@@ -10,7 +10,6 @@ function Login() {
 
   async function onSubmitHandler(event) {
     event.preventDefault();
-    // TODO HANDLE LOGIN HERE
     const response = await login({ username, password });
     if (response?.data?.token) {
       putAccessToken(response.data.token);

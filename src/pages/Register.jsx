@@ -10,7 +10,6 @@ function Register() {
 
   function onSubmitHandler(event) {
     event.preventDefault();
-    // TODO HANDLE REGISTER HERE
     register({ username, password }).then((response) => {
       console.log(response);
       if (response) {
