@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function NoteCard({ no, title, createdAt, children, id, index, onDelete }) {
   return (
-    <div className="text-start fs-4 mb-2 bg-dark text-light rounded">
+    <div className="col-md-4 text-start g-2 fs-4 mb-1 bg-dark text-light rounded">
       <div className="card-header p-2 d-flex justify-content-between">
         <div>Catatan {no}</div>
         <DeleteButton index={index} id={id} onDelete={onDelete} />

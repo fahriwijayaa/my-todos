@@ -111,8 +111,8 @@ function Home() {
           </ul>
         </div>
       </nav>
-      <div className="p-5">
-        <strong className="fs-1 text-light">Note List</strong>
+      <div className="p-5 px-3">
+        <strong className="p-5 fs-1 text-light">Note List</strong>
         <br />
         <Button
           className="d-flex mb-2 btn-outline-primary text-center"
@@ -124,7 +124,7 @@ function Home() {
         >
           Add Note
         </Button>
-        <div>
+        <div className="">
           <NoteList notes={filteredNotes} onDelete={onDeleteHandler} />
         </div>
       </div>

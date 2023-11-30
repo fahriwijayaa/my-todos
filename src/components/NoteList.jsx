@@ -4,7 +4,7 @@ function NoteList(props) {
   const { notes, onDelete } = props;
 
   return (
-    <div>
+    <div className="row">
       {notes.map((note, index) => {
         const createdAtDate = new Date(note.createdAt);
         createdAtDate.setDate(createdAtDate.getDate());
