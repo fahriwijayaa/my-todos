@@ -21,7 +21,7 @@ function Login() {
     <div className="p-2">
       <strong className="fs-1 text-center text-light">Sign In</strong>
       <Form
-        className="row px-5 g-3 m-5 text-light"
+        className="row px-5 g-3 m-5 text-light col-md-4 mx-auto"
         onSubmit={(event) => {
           onSubmitHandler(event);
         }}
@@ -49,7 +49,7 @@ function Login() {
         <Form.Group>
           {username && password ? (
             <Button
-              className="col-2 mb-1 btn-outline-primary"
+              className="col-3 mb-1 btn-outline-primary"
               variant="light"
               type="submit"
             >
@@ -57,7 +57,7 @@ function Login() {
             </Button>
           ) : (
             <Button
-              className="col-2 mb-1 btn-outline-danger"
+              className="col-3 mb-1 btn-outline-danger"
               variant="light"
               type="submit"
               disabled

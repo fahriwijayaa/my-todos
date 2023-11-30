@@ -9,6 +9,8 @@ import {
 } from "../utils/network";
 import NoteList from "../components/NoteList";
 import profile from "../assets/profile.png";
+import user from "../assets/user.png";
+import logout from "../assets/logout.png";
 import "../App.css";
 
 function Home() {
@@ -96,7 +98,7 @@ function Home() {
                   onProfileHandler(event);
                 }}
               >
-                Profile
+                Profile <img src={user} alt="Profile" width="25" height="25" />
               </button>
             </li>
             <li>
@@ -105,7 +107,7 @@ function Home() {
                   onLogoutHandler(event);
                 }}
               >
-                Logout
+                Logout <img src={logout} alt="Profile" width="25" height="25" />
               </button>
             </li>
           </ul>
@@ -124,7 +126,7 @@ function Home() {
         >
           Add Note
         </Button>
-        <div className="">
+        <div>
           <NoteList notes={filteredNotes} onDelete={onDeleteHandler} />
         </div>
       </div>
